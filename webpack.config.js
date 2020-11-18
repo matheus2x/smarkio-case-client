@@ -17,10 +17,20 @@ module.exports = {
          MiniCssExtractPlugin.loader,
        ],
      }, {
-       test: /\.(png|svg|jpg|gif|mp3|mpe?g)$/,
-       use: [
-         "file-loader"
-       ]
+       test: /\.(png|svg|jpe?g|gif|mp3|mpe?g)$/,
+       loader: "file-loader",
+       options: {
+         name: "[name].[ext]"
+       }
+     }, {
+       test: /\.js$/,
+       exclude: /node_modules/,
+       use: {
+         loader: "babel-loader",
+         options: {
+           presets: ["@babel/preset-env"]
+         }
+        }
      }]
    },
    plugins: [
