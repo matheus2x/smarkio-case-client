@@ -1,15 +1,25 @@
-import { fetch as fetchPolyfill } from "whatwg-fetch";
-
 import "../css/styles.css";
 
+const registerBtn = document.querySelector("#register-btn");
 const form = document.querySelector("#comment-form");
 const commentInput = document.querySelector("#comment-text");
 const list = document.querySelector("#list");
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
+  registerBtn.disabled = true;
+  let voiceLang =document.getElementById("pt-br").value
+
+  if (document.getElementById("en-us").checked)  {
+    voiceLang = document.getElementById("en-us").value;
+  }
+
+  if (!commentInput.value) {
+    registerBtn.disabled = false;
+    return window.alert("Invalid Text");
+  }
   
-  const jsonRequest = JSON.stringify({ comment: commentInput.value });
+  const jsonRequest = JSON.stringify({ comment: commentInput.value, voiceLang });
   
   const fetchConfigs = {
     method: "POST",
@@ -37,7 +47,7 @@ form.addEventListener("submit", (event) => {
     const textComment = document.createElement("p");
     textComment.innerHTML = result.comment;
     
-    const mp3 = `http://localhost:3333/uploads/${result.audio}`;
+    const mp3 = `http://localhost:3333/uploads/${result.speech}`;
     
     const mp3src = document.createElement("source");
     mp3src.setAttribute("src", mp3);
@@ -51,6 +61,7 @@ form.addEventListener("submit", (event) => {
     setTimeout(() => {
       listItem.appendChild(playAudioBtn);
       speech.appendChild(mp3src);
+      registerBtn.disabled = false;
     },6000)
     
     playAudioBtn.addEventListener("click", () => {

@@ -13,12 +13,16 @@
     <section id="comment">
       <form id="comment-form">
         <label for="comment-text">Comentar:</label>
-        <input type="text" placeholder="mamaivos"  id="comment-text" maxlength="300">
-        <div class="span-group">
-          <span id="current-comment">0</span>
-          <span id="max-comment">300</span>
+        <textarea type="text" placeholder="Max 300 characters"   id="comment-text" maxlength="300"></textarea>
+
+        <div class="input-group">
+         <input required type="radio" id="pt-br" name="speech-lang" checked value=1>
+         <label for="pt-br">PT-BR</label>
+         <input required type="radio" id="en-us" name="speech-lang"  value=2>
+         <label for="pt-br">EN-US</label>
         </div>
-        <button>Cadastrar</button>
+
+        <button id="register-btn">Cadastrar</button>
       </form>
     </section>
 
