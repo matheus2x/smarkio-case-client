@@ -4,12 +4,54 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Smarkio Case</title>
+
 </head>
 
 <body>
-  <h3>teste</h3>
-</body>
+  <div id="container">
+    <section id="comment">
+      <form id="comment-form">
+        <label for="comment-text">Comentar:</label>
+        <input type="text" placeholder="mamaivos"  id="comment-text" maxlength="300">
+        <div class="span-group">
+          <span id="current-comment">0</span>
+          <span id="max-comment">300</span>
+        </div>
+        <button>Cadastrar</button>
+      </form>
+    </section>
 
+    <!-- <div class="separator"></div> -->
+    
+    <section id="listen">
+      <h1>Comentários:</h1>
+
+      <ul id="list">
+        <!-- <li>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Nam porta, nisi vel placerat vulputate, erat lorem vehicula purus,
+            eu condimentum ligula enim.
+          </p>
+          <button type="submit">Ouvir</button>
+        </li>
+        <li>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Nam porta, nisi vel placerat vulputate, erat lorem vehicula purus,
+            eu condimentum ligula enim. Lorem ipsum dolor sit amet, consectetur
+            adipiscing elit. Nam porta, nisi vel placerat vulputate, erat lorem vehicula
+            purus, eu condimentum ligula e.
+          </p>
+          <button type="submit">Ouvir</button>
+        </li> -->
+      </ul>
+
+    </section>
+  </div>
+
+  <!-- <audio controls autoplay>
+    <source src="http://localhost:3333/uploads/speech-9.mp3" type="audio/mpeg">
+  </audio> -->
+</body>
 
 </html>
