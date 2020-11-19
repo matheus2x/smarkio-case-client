@@ -49,7 +49,7 @@ I am assuming that you have already started the server side
 ```
 
 2. Move yourself to the appropriate directory: `$ cd smarkio-case-client`
-3. Change `nodePort` const in src/index.js (put the same as in server-side)
+3. Change `nodePort` const in src/js/index.js (put the same as in server-side)
 
 - Run `$ npm run build` to gen bundle files
 - Run `$ npm run start` to initialize
@@ -61,7 +61,7 @@ I am assuming that you have already started the server side
 
 ## :link: Useful URLs
 
-- [Client Side](https://github.com/matheus2x/smarkio-case/ "Client Side")
+- [Server-Side](https://github.com/matheus2x/smarkio-case-server/ "Server-Side")
 
 ---
 
