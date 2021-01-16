@@ -1,27 +1,32 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Smarkio Case</title>
 	</head>
 
 	<body>
 		<div class="container-fluid">
 			<div class="row vh-100 justify-content-center align-items-center">
-
 				<section class="col-4 pr-5">
 					<h1 class="mb-4">Text To Speech (TTS)</h1>
 					<form id="form-message">
 						<div class="form-group">
-							<label for="ex">1. Selecionar idioma</label>
-							<select name="ex" id="ex" class="form-control">
+							<label for="lang-message">1. Selecionar idioma</label>
+							<select
+								name="lang-message"
+								id="lang-message"
+								class="form-control"
+							>
 								<option>Português - Brasil</option>
 								<option>English - USA</option>
 							</select>
 						</div>
 						<div class="form-group">
-							<label for="textarea-message">2. Personalize a sua mensagem</label>
+							<label for="textarea-message">
+								2. Personalize a sua mensagem
+							</label>
 							<textarea
 								id="textarea-message"
 								class="form-control"
@@ -29,7 +34,8 @@
 								cols="4"
 								placeholder="Máximo de 300 caracteres."
 								maxlength="300"
-								required></textarea>
+								required
+							></textarea>
 						</div>
 						<button type="submit" class="btn-primary">Enviar</button>
 					</form>
@@ -39,35 +45,64 @@
 					<ul class="list-unstyled d-flex flex-column-reverse">
 						<li class="media align-items-center row mb-3">
 							<div class="media-body border-bottom d-flex">
-								<img src="static/play-circle.svg" class="mr-3" width="50" alt="Play Icon">
-								<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec.</p>
+								<img
+									src="static/play-circle.svg"
+									class="mr-3"
+									width="50"
+									alt="Play Icon"
+								/>
+								<p>
+									Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+									Aenean commodo ligula eget dolor. Aenean massa. Cum sociis
+									natoque penatibus et magnis dis parturient montes, nascetur
+									ridiculus mus. Donec quam felis, ultricies nec, pellentesque
+									eu, pretium quis, sem. Nulla consequat massa quis enim. Donec.
+								</p>
 							</div>
 						</li>
 						<li class="media align-items-center row mb-3">
 							<div class="media-body border-bottom d-flex">
-								<img src="static/play-circle.svg" class="mr-3" width="50" alt="Play Icon">
+								<img
+									src="static/play-circle.svg"
+									class="mr-3"
+									width="50"
+									alt="Play Icon"
+								/>
 								<p>Lor. Donec.</p>
 							</div>
 						</li>
 						<li class="media align-items-center row mb-3">
 							<div class="media-body border-bottom d-flex">
-								<img src="static/play-circle.svg" class="mr-3" width="50" alt="Play Icon">
-									<p>Lossa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies . Nulla consequat massa quis enim. Donec.</p>
-								</div>
+								<img
+									src="static/play-circle.svg"
+									class="mr-3"
+									width="50"
+									alt="Play Icon"
+								/>
+								<p>
+									Lossa. Cum sociis natoque penatibus et magnis dis parturient
+									montes, nascetur ridiculus mus. Donec quam felis, ultricies .
+									Nulla consequat massa quis enim. Donec.
+								</p>
+							</div>
 						</li>
 						<li class="media align-items-center row mb-3">
 							<div class="media-body border-bottom d-flex">
-								<img src="static/play-circle.svg" class="mr-3" width="50" alt="Play Icon">
+								<img
+									src="static/play-circle.svg"
+									class="mr-3"
+									width="50"
+									alt="Play Icon"
+								/>
 								<p>Lorem ies nec, pquat massa quis enim. Donec.</p>
 							</div>
 						</li>
 					</ul>
 				</section>
-
 			</div>
 		</div>
 
-<!-- <div id="container">
+		<!-- <div id="container">
 
     <section id="comment">
     <form id="comment-form">
@@ -115,7 +150,7 @@
   </section>
 </div> -->
 
-<!-- <audio controls autoplay>
+		<!-- <audio controls autoplay>
   <source src="http://localhost:3333/uploads/speech-9.mp3" type="audio/mpeg">
 </audio> -->
 	</body>

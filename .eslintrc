@@ -1,8 +1,8 @@
 {
 	"env": {
 		"browser": true,
-    "commonjs": true
-  },
+		"commonjs": true
+	},
 	"extends": ["airbnb-base", "prettier"],
 	"plugins": ["import", "prettier", "html"],
 	"settings": {
