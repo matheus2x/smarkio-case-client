@@ -1,126 +1,104 @@
 import "../css/styles.scss";
-import "../static/play-circle.svg";
+import playIcon from "../static/play-circle.svg";
 
-const commentForm = document.querySelector("#form-message");
+const nodePort = 3333;
+const baseUrl = `http://localhost:${nodePort}`;
+
 const textArea = document.querySelector("#textarea-message");
 
-commentForm.addEventListener("submit", (e) => {
-  e.preventDefault();
-  textArea.value = textArea.value.trim();
-
-  if (textArea.value[0] === String.fromCharCode(32) || textArea.value.length === 0) {
-    window.alert("ERRO: MENSÁGEM INVÁLIDA");
-    commentForm.reset();
-  }
-
-})
-
-textArea.addEventListener("keypress", function(e) {
-  const key = e.key;
-  if (key === String.fromCharCode(32) && this.value.length === 0) {
-    e.preventDefault();
-  }
+textArea.addEventListener("keypress", function handleSubmit(e) {
+	const { key } = e;
+	if (key === String.fromCharCode(32) && this.value.length === 0) {
+		e.preventDefault();
+	}
 });
-// String.fromCharCode(32)
 
-// import "../css/styles.css"
+const commentList = document.querySelector("#comment-list");
 
-// const nodePort = 3333;
-// const baseUrl = `http://localhost:${nodePort}`;
+function addItemsToCommentList(comment) {
+	const listItem = document.createElement("li");
+	listItem.setAttribute("id", `comment-${comment.id}`);
+	listItem.setAttribute("class", "media row mb-3");
 
-// const registerBtn = document.querySelector("#register-btn");
-// const form = document.querySelector("#comment-form");
-// const commentInput = document.querySelector("#comment-text");
-// const list = document.querySelector("#list");
+	const itemBody = document.createElement("div");
+	itemBody.setAttribute(
+		"class",
+		"media-body border-bottom d-flex align-items-center"
+	);
 
-// fetch(`${baseUrl}/tts`, {
-//   method: "GET"
-// }).then(response => response.json()).then(result => {
-//   console.log(result);
+	const imgPlayIcon = document.createElement("img");
+	imgPlayIcon.setAttribute("id", `icon-${comment.id}`);
+	imgPlayIcon.setAttribute("class", "mr-3 play-icon");
+	imgPlayIcon.setAttribute("width", "50");
+	imgPlayIcon.setAttribute("src", playIcon);
+	imgPlayIcon.setAttribute("alt", "Play Icon");
 
-//   result.forEach((item) => {
-//     console.log(item.id);
+	const audioPlayer = document.createElement("audio");
+	audioPlayer.setAttribute("id", `audio-${comment.id}`);
+	audioPlayer.setAttribute("class", "d-none");
+	audioPlayer.setAttribute("controls", "");
 
-//     const h = `<li id="speech-${item.id}">
-//       <p>${item.comment}</p>
-//       <audio controls>
-//         <source src="${item.audio}" type="audio/mpeg">
-//       </audio>
-//       <button class="playerBtn">Ouvir</button>
-//     </li>`
+	const audioSource = document.createElement("source");
+	audioSource.setAttribute("src", comment.audio);
+	audioSource.setAttribute("type", "audio/mpeg");
 
-//     console.log(h)
+	const commentText = document.createElement("p");
+	commentText.innerHTML = comment.comment;
 
-//     list.innerHTML += h;
-//   })
-// })
+	listItem.appendChild(itemBody);
+	itemBody.appendChild(imgPlayIcon);
+	itemBody.appendChild(audioPlayer);
+	audioPlayer.appendChild(audioSource);
+	itemBody.appendChild(commentText);
 
-// const b = document.querySelector(".playerBtn");
-// b.addEventListener("click", () => {
+	imgPlayIcon.addEventListener("click", () => audioPlayer.play());
 
-// })
+	commentList.appendChild(listItem);
+}
 
-// form.addEventListener("submit", (event) => {
-//   event.preventDefault();
-//   registerBtn.disabled = true;
-//   let voiceLang =document.getElementById("pt-br").value
+fetch(`${baseUrl}/tts`, {
+	method: "GET",
+}).then((response) =>
+	response.json().then((comments) => {
+		comments.forEach((comment) => addItemsToCommentList(comment));
+	})
+);
 
-//   if (document.getElementById("en-us").checked)  {
-//     voiceLang = document.getElementById("en-us").value;
-//   }
+const commentForm = document.querySelector("#form-message");
+const selectLang = document.querySelector("#lang-message");
+const postBtn = document.querySelector("#btn-post");
 
-//   if (!commentInput.value) {
-//     registerBtn.disabled = false;
-//     return window.alert("Invalid Text");
-//   }
-  
-//   const jsonRequest = JSON.stringify({ comment: commentInput.value, voiceLang });
-  
-//   const fetchConfigs = {
-//     method: "POST",
-//     headers: {
-//       "Content-Type": "application/json"
-//     }
-//   }
-  
-//   fetch(`${baseUrl}/tts`, {
-//     method: fetchConfigs.method,
-//     headers: fetchConfigs.headers,
-//     body: jsonRequest
-//   }).then(response => response.json() ).then(result => {
-//     console.log(result);
+commentForm.addEventListener("submit", (event) => {
+	event.preventDefault();
+	postBtn.disabled = true;
 
-//     const listItem = document.createElement("li");
-//     listItem.setAttribute("id", `speech-${result.id}`);
-    
-//     const speech = document.createElement("audio");
-//     speech.setAttribute("controls", "")
-    
-//     const playAudioBtn = document.createElement("button");
-//     playAudioBtn.innerHTML = "Ouvir";
-    
-//     const textComment = document.createElement("p");
-//     textComment.innerHTML = result.comment;
-    
-//     const mp3 = `${baseUrl}/uploads/${result.speech}`;
-    
-//     const mp3src = document.createElement("source");
-//     mp3src.setAttribute("src", mp3);
-//     mp3src.setAttribute("type", "audio/mpeg");
-    
-//     listItem.appendChild(textComment);
-//     listItem.appendChild(speech);
-    
-//     list.appendChild(listItem);
-    
-//     setTimeout(() => {
-//       listItem.appendChild(playAudioBtn);
-//       speech.appendChild(mp3src);
-//       registerBtn.disabled = false;
-//     },6000)
-    
-//     playAudioBtn.addEventListener("click", () => {
-//       speech.play();
-//     })
-//   })
-// })
+	textArea.value = textArea.value.trim();
+
+	if (
+		textArea.value[0] === String.fromCharCode(32) ||
+		textArea.value.length === 0
+	) {
+		window.alert("ERRO: MENSÁGEM INVÁLIDA");
+		commentForm.reset();
+	}
+
+	if (!selectLang.value) {
+		window.alert("ERRO: LINGUAGEM INVÁLIDA");
+	}
+
+	const voiceLang = selectLang.value === "Português - Brasil" ? "1" : "2";
+
+	const requestBody = JSON.stringify({ comment: textArea.value, voiceLang });
+
+	fetch(`${baseUrl}/tts`, {
+		method: "POST",
+		headers: { "Content-Type": "application/json" },
+		body: requestBody,
+	})
+		.then((response) => response.json())
+		.then((result) => {
+			addItemsToCommentList(result);
+			postBtn.disabled = false;
+			commentForm.reset();
+		});
+});
