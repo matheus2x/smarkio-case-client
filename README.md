@@ -1,7 +1,8 @@
 <h1 align="center">
     <img alt="Logo" title="#logo" width="200px" src=".github/smarkio-logo.png"><br>
 </h1>
-<hr>
+
+<img src=".github/screenshot.png" align="center" />
 
 # Summary
 
@@ -23,12 +24,12 @@ Basically, a web page made with Ajax concepts that consists of using the API tha
 
 ## :rocket: Techs used
 
+- **Bootstrap** - A popular HTML, CSS, and JS library
+- **Sass** - A CSS pre-processor
 - **HTML5** - Mark Down Lang
-- **CSS3** - Style Sheet Lang
 - **JavaScript** - The Best code Lang
 - **WebPack** - A JavaScript Module Bundler
 - **Babel** - A JavaScript Transcompiler
-
 
 <a id="getting-started"></a>
 
@@ -49,10 +50,9 @@ I am assuming that you have already started the server side
 ```
 
 2. Move yourself to the appropriate directory: `$ cd smarkio-case-client`
-3. Change `nodePort` const in src/js/index.js (put the same as in server-side)
-
-- Run `$ npm run build` to gen bundle files
-- Run `$ npm run start` to initialize
+3. Run `$ npm install` to download dependencies
+4. Run `$ npm run build` to gen bundle files
+5. Run `$ npm run start` to initialize
 
 <br>Now you have a local server (probably) in port 8080
 <br>Enjoy =)
@@ -67,6 +67,10 @@ I am assuming that you have already started the server side
 
 - [Git](https://git-scm.com/ "Git")
 - [Node](https://nodejs.org/ "Node")
+- [Babel](https://babeljs.io/ "Babel")
+- [Sass](https://sass-lang.com/ "Sass")
+- [Bootstrap](https://getbootstrap.com/ "Bootstrap")
+- [Webpack](https://webpack.js.org/ "Webpack")
 
 ---
 
