@@ -13,11 +13,11 @@
 					<h1 class="mb-4">Text To Speech (TTS)</h1>
 					<form id="form-message">
 						<div class="form-group">
-							<label for="lang-message">1. Selecionar idioma</label>
+							<label for="lang-message">1. Selecionar o idioma</label>
 							<select
-								name="lang-message"
 								id="lang-message"
 								class="form-control"
+								name="lang-message"
 							>
 								<option>Português - Brasil</option>
 								<option>English - USA</option>
@@ -37,121 +37,19 @@
 								required
 							></textarea>
 						</div>
-						<button type="submit" class="btn-primary">Enviar</button>
+						<button id="btn-post" type="submit" class="btn-primary">
+							Enviar
+						</button>
 					</form>
 				</section>
 
 				<section class="col-4">
-					<ul class="list-unstyled d-flex flex-column-reverse">
-						<li class="media align-items-center row mb-3">
-							<div class="media-body border-bottom d-flex">
-								<img
-									src="static/play-circle.svg"
-									class="mr-3"
-									width="50"
-									alt="Play Icon"
-								/>
-								<p>
-									Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-									Aenean commodo ligula eget dolor. Aenean massa. Cum sociis
-									natoque penatibus et magnis dis parturient montes, nascetur
-									ridiculus mus. Donec quam felis, ultricies nec, pellentesque
-									eu, pretium quis, sem. Nulla consequat massa quis enim. Donec.
-								</p>
-							</div>
-						</li>
-						<li class="media align-items-center row mb-3">
-							<div class="media-body border-bottom d-flex">
-								<img
-									src="static/play-circle.svg"
-									class="mr-3"
-									width="50"
-									alt="Play Icon"
-								/>
-								<p>Lor. Donec.</p>
-							</div>
-						</li>
-						<li class="media align-items-center row mb-3">
-							<div class="media-body border-bottom d-flex">
-								<img
-									src="static/play-circle.svg"
-									class="mr-3"
-									width="50"
-									alt="Play Icon"
-								/>
-								<p>
-									Lossa. Cum sociis natoque penatibus et magnis dis parturient
-									montes, nascetur ridiculus mus. Donec quam felis, ultricies .
-									Nulla consequat massa quis enim. Donec.
-								</p>
-							</div>
-						</li>
-						<li class="media align-items-center row mb-3">
-							<div class="media-body border-bottom d-flex">
-								<img
-									src="static/play-circle.svg"
-									class="mr-3"
-									width="50"
-									alt="Play Icon"
-								/>
-								<p>Lorem ies nec, pquat massa quis enim. Donec.</p>
-							</div>
-						</li>
-					</ul>
+					<ul
+						id="comment-list"
+						class="list-unstyled d-flex flex-column-reverse"
+					></ul>
 				</section>
 			</div>
 		</div>
-
-		<!-- <div id="container">
-
-    <section id="comment">
-    <form id="comment-form">
-      <label for="comment-text">Comentar:</label>
-      <textarea type="text" placeholder="Max 300 characters"   id="comment-text" maxlength="300"></textarea>
-
-      <div class="input-group">
-        <input required type="radio" id="pt-br" name="speech-lang" checked value=1>
-        <label for="pt-br">PT-BR</label>
-        <input required type="radio" id="en-us" name="speech-lang"  value=2>
-        <label for="pt-br">EN-US</label>
-      </div>
-
-      <button id="register-btn">Cadastrar</button>
-    </form>
-  </section>
-
-  <section id="listen">
-    <h1>Comentários:</h1>
-
-    <ul id="list">
-      <li>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          Nam porta, nisi vel placerat vulputate, erat lorem vehicula purus,
-          eu condimentum ligula enim.
-        </p>
-        <button type="submit">Ouvir</button>
-      </li>
-      <li>
-        <p>Bom dia meu amor, como vai?
-        </p>
-        <button type="submit">Ouvir</button>
-      </li>
-      <li>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          Nam porta, nisi vel placerat vulputate, erat lorem vehicula purus,
-          eu condimentum ligula enim. Lorem ipsum dolor sit amet, consectetur
-          adipiscing elit. Nam porta, nisi vel placerat vulputate, erat lorem vehicula
-          purus, eu condimentum ligula e.
-        </p>
-        <button type="submit">Ouvir</button>
-      </li>
-    </ul>
-
-  </section>
-</div> -->
-
-		<!-- <audio controls autoplay>
-  <source src="http://localhost:3333/uploads/speech-9.mp3" type="audio/mpeg">
-</audio> -->
 	</body>
 </html>
