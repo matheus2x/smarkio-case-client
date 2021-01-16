@@ -4,7 +4,10 @@
     "commonjs": true
   },
 	"extends": ["airbnb-base", "prettier"],
-	"plugins": ["import", "prettier"],
+	"plugins": ["import", "prettier", "html"],
+	"settings": {
+		"html/html-extensions": [".html"]
+	},
 	"rules": {
 		"import/prefer-default-export": "off",
 		"consistent-return": "warn",
