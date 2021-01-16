@@ -8,7 +8,12 @@ const textArea = document.querySelector("#textarea-message");
 
 textArea.addEventListener("keypress", function handleSubmit(e) {
 	const { key } = e;
-	if (key === String.fromCharCode(32) && this.value.length === 0) {
+	const whiteSpaceCharCode = 32;
+
+	if (
+		key === String.fromCharCode(whiteSpaceCharCode) &&
+		this.value.length === 0
+	) {
 		e.preventDefault();
 	}
 });
@@ -28,7 +33,7 @@ function addItemsToCommentList(comment) {
 
 	const imgPlayIcon = document.createElement("img");
 	imgPlayIcon.setAttribute("id", `icon-${comment.id}`);
-	imgPlayIcon.setAttribute("class", "mr-3 play-icon");
+	imgPlayIcon.setAttribute("class", "mr-3 mb-2 play-icon");
 	imgPlayIcon.setAttribute("width", "50");
 	imgPlayIcon.setAttribute("src", playIcon);
 	imgPlayIcon.setAttribute("alt", "Play Icon");
